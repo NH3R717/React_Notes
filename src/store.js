@@ -14,9 +14,11 @@ const persistConfig = {
   stateReconciler: autoMergeLevel2,
 };
 
+// ! put reducers into a form that can be passed into the creat store imported
 const rootReducer = combineReducers(reducers);
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
+// ! return create store called with root reducer
 export const configureStore = () =>
   createStore(
     persistedReducer,
